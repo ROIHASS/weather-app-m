@@ -1,0 +1,33 @@
+
+
+
+<form [formGroup]='FormStructure' (ngSubmit)="addCity()">
+    <div class="flex">
+        <select name="city" formControlName="city">
+            <option value="select city" [selected]='true' disabled>select city</option>
+            <option value="Kyiv">Kyiv</option>
+            <option value="Tel Aviv">Tel Aviv</option>
+        </select>
+        <div class="error">
+            <div *ngIf="FormStructure.controls.city.errors?.required && FormStructure.controls.city.touched">
+                please select city
+            </div>
+        </div>
+    </div>
+
+    <div class="flex">
+        <input type="text" formControlName="units" [ngClass]="{
+            'is-valid': FormStructure.controls.units.valid,
+            'is-invalid': validation()
+        }">
+        <div class="error">
+            <div *ngIf="validation()">
+                {{validation()}}
+            </div>
+        </div>
+    </div>
+    <div class="flex">
+
+        <button type="submit">&#x2B;</button>
+    </div>
+</form>
