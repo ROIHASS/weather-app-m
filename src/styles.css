@@ -1,4 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
-*{  
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
+
+html,
+body{
+    background-color: #fff;
+    color: #555;
+    font-family: 'Assistant', 'Ariel', sans-serif;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+.flex{
+    display: flex;
+    margin: 0 auto;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 80px;
 }

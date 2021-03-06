@@ -1,2 +1,20 @@
+<h1>Check Weather</h1>
 <app-add-city></app-add-city>
+<div class="initial-size">
+    <div *ngIf="cities.length > 0" [@enterAnimation]>
+        <div class="flex">
+            <div>{{cities[0].name}}</div>
+            <div>{{cities[0].main.temp}}&deg; {{cities[0].units | units}}</div>
+            <div><img [src]="'http://openweathermap.org/img/wn/'+cities[0].weather.icon+'@2x.png'" alt=""></div>
+        </div>
+
+        <app-add-city></app-add-city>
+        <div *ngIf="cities.length > 1" class="flex" [@enterAnimation]>
+            <div>{{cities[1].name}}</div>
+            <div>{{cities[1].main.temp}}&deg; {{cities[1].units | units}}</div>
+            <div><img [src]="'http://openweathermap.org/img/wn/'+cities[1].weather.icon+'@2x.png'" alt=""></div>
+        </div>
+
+    </div>
+</div>
 <app-show-cities></app-show-cities>

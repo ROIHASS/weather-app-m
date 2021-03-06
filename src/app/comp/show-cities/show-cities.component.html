@@ -1,0 +1,13 @@
+<h3>Weather in:</h3>
+<div class="table">
+    <div class="weather">
+        <div *ngFor="let city of cities$ |async; let i = index;">
+            <div class="flex">
+                {{i+1}}.
+                <div>{{city.name}}</div>
+                <div>{{city.main.temp}}&deg; {{city.units | units}};</div>
+                <div>{{city.weather.description}}</div>
+            </div>
+        </div>
+    </div>
+</div>

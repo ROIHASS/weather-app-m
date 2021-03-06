@@ -8,17 +8,22 @@ import { AppComponent } from './app.component';
 import { AddCityComponent } from './comp/add-city/add-city.component';
 import { ShowCitiesComponent } from './comp/show-cities/show-cities.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UnitsPipe } from './pipes/units.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     AddCityComponent,
-    ShowCitiesComponent
+    ShowCitiesComponent,
+    UnitsPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot({ weather: weatherReducer })
   ],
   providers: [],

@@ -9,10 +9,9 @@ export class CustomValidationService {
   ValidateUnits: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     if (!['standard', 'metric', 'imperial'].includes(control.value)) {
       return {
-        inValid: 'This field must contain one of these values: standard, metric, imperial!'
+        inValid: 'This field must to contain one of the follows values: standard, metric, imperial!'
       }
     }
-    console.log(control);
     return null;
   }
 

@@ -14,17 +14,22 @@ export class AddCityComponent {
 
   FormStructure = this.fb.group({
     city: ['', [Validators.required]],
-    units: ['', [Validators.required, this.customValidation.ValidateUnits]],
+    units: ['metric', [Validators.required, this.customValidation.ValidateUnits]],
   });
 
 
   addCity() {
+    if (this.FormStructure.invalid) {
+      this.FormStructure.get('city').markAsTouched();
+      this.FormStructure.get('units').markAsTouched();
+      return;
+    }
     const { city, units } = this.FormStructure.value;
     this.weatherService.addCity(city, units);
   }
 
-  validation() {
-    const units = this.FormStructure.controls.units;
+  doValidation() {
+    const units = this.FormStructure.get('units');
     if (units.touched) {
 
       if (units.errors?.required) {

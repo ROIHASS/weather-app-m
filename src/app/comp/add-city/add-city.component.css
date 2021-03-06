@@ -1,0 +1,48 @@
+
+form{
+    display: flex;
+    justify-content: space-around;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 70px;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+input , select{
+    height: 30px;
+    border-radius: 3px;
+    width: 230px;
+    border: 1px solid black;
+    text-indent: 10px;
+}
+
+.is-invalid{
+    border: #ff4646 1px solid;
+}
+
+.is-valid{
+    border: green 1px solid;
+}
+
+.error{
+    height: 50px;
+    width: 230px;
+    color: #ff4646;
+    margin-top: 2px;
+}
+
+button{
+    font-size: 65px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.align{
+    margin-top: -23px;
+}
+
+button{
+    cursor: pointer;
+}
