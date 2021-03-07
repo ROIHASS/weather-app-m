@@ -10,7 +10,7 @@ import { addWeather } from '../store/weather.actions';
 export class WeatherService {
 
   private ApiKey: string = `0d7303c17ee3d3482cd82a2ad273a90d`;
-  private baseUrl: string = `http://api.openweathermap.org/data/2.5/weather`;
+  private baseUrl: string = `https://api.openweathermap.org/data/2.5/weather`;
   
   httpOptions = {
     headers: new HttpHeaders({ 'Accept': 'application/json' })
