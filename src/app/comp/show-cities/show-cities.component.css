@@ -14,5 +14,16 @@ div[class=flex]{
 }
 
 h3{
-    margin: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h3::before{
+    display: block;
+    height: 2px;
+    background-color: #58ffe3;
+    content: ' ';
+    width: 100px;
+    margin:0 auto;
+    margin-bottom: 30px;
 }
