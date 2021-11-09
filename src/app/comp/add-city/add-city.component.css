@@ -1,60 +1,71 @@
-
-form{
-    display: flex;
-    justify-content: space-around;
-    max-width: 500px;
-    margin: 0 auto;
-    height: 70px;
-    margin-top: 50px;
-    gap: 30px;
+.inputs {
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+  margin: 0 auto;
+  height: 70px;
+  margin-top: 50px;
+  gap: 30px;
 }
 
-input , select{
-    height: 30px;
-    border-radius: 3px;
-    width: 230px;
-    border: 1px solid black;
-    text-indent: 10px;
+input,
+select {
+  height: 30px;
+  border-radius: 3px;
+  width: 230px;
+  border: 1px solid black;
+  text-indent: 10px;
 }
 
-.is-invalid{
-    border: #ff4646 1px solid;
+.is-invalid {
+  border: #ff4646 1px solid;
 }
 
-.is-valid{
-    border: green 1px solid;
+.is-valid {
+  border: green 1px solid;
 }
 
-.error{
-    height: 50px;
-    width: 230px;
-    color: #ff4646;
-    margin-top: 2px;
+.error {
+  height: 50px;
+  width: 230px;
+  color: #ff4646;
+  margin-top: 2px;
 }
 
-button{
-    font-size: 65px;
-    background: none;
-    border: none;
-    outline: none;
+button {
+  font-size: 19px;
+  margin: 0 auto;
+  border-radius: 6px;
+  height: 40px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+  background: #00f8ce;
+  color: #333;
 }
 
-.align{
-    margin-top: -23px;
+.align {
+  margin-top: -23px;
 }
 
-button{
-    cursor: pointer;
+button:hover {
+  background: #00d6b2;
+  color: rgba(255, 255, 255, 0.767);
+  border: #333;
+  transition: background 0.5s, color 0.5s;
+
 }
 
-
-@media only screen and (max-width: 620px){
-
-form{
+@media only screen and (max-width: 620px) {
+  form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 220px;
     gap: 0px;
-}
+  }
 }

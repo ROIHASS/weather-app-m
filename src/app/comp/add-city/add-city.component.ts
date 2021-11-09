@@ -14,7 +14,7 @@ export class AddCityComponent {
 
   FormStructure = this.fb.group({
     city: ['', [Validators.required]],
-    units: ['', [Validators.required, this.customValidation.ValidateUnits]],
+    units: ['metric', [Validators.required, this.customValidation.ValidateUnits]],
   });
 
 

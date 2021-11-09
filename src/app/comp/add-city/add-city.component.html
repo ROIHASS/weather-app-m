@@ -1,35 +1,35 @@
-
-    <form [formGroup]='FormStructure' (ngSubmit)="addCity()">
+<form [formGroup]='FormStructure' (ngSubmit)="addCity()">
+    <div class="inputs">
         <div>
             <select name="city" formControlName="city" [ngClass]="{
-            'is-valid': FormStructure.get('city').valid,
-            'is-invalid': FormStructure.get('city').errors?.required && FormStructure.get('city').touched
-        }">
+                  'is-valid': FormStructure.get('city').valid,
+                  'is-invalid': FormStructure.get('city').errors?.required && FormStructure.get('city').touched
+                }">
                 <option value="select city" [selected]='true' disabled>select city</option>
                 <option value="Kyiv">Kyiv</option>
                 <option value="Tel Aviv">Tel Aviv</option>
             </select>
             <div class="error">
                 <div *ngIf="FormStructure.get('city').errors?.required && FormStructure.get('city').touched">
-                    please select city!
+                    please select a city!
                 </div>
             </div>
         </div>
 
         <div>
             <input type="text" formControlName="units" [ngClass]="{
-            'is-valid': FormStructure.get('units').valid,
-            'is-invalid': doValidation()
-        }"
-        placeholder="units(standard, imperial, etc)">
+                'is-valid': FormStructure.get('units').valid,
+                'is-invalid': doValidation()
+            }" placeholder="units(standard, imperial, etc)">
             <div class="error">
                 <div *ngIf="doValidation()">
                     {{doValidation()}}
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="align">
-            <button type="submit" >&#x2B;</button>
-        </div>
-    </form>
+    <div class="align">
+        <button type="submit">Show</button>
+    </div>
+</form>

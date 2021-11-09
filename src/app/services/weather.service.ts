@@ -3,26 +3,34 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Store, select } from '@ngrx/store';
 import { City } from '../../app/models/city.model';
 import { addWeather } from '../store/weather.actions';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WeatherService {
-
-  private ApiKey: string = `0d7303c17ee3d3482cd82a2ad273a90d`;
+  private ApiKey: string = null;
   private baseUrl: string = `https://api.openweathermap.org/data/2.5/weather`;
-  
+
   httpOptions = {
-    headers: new HttpHeaders({ 'Accept': 'application/json' })
+    headers: new HttpHeaders({ Accept: 'application/json' }),
   };
 
-  constructor(private http: HttpClient, private store: Store<{ weather: City[] }>) { }
+  constructor(
+    private http: HttpClient,
+    private store: Store<{ weather: City[] }>
+  ) {
+    this.ApiKey = environment.Api_Key;
+  }
 
   addCity(city: string, units: string) {
-    this.http.get(`
+    this.http
+      .get(
+        `
       ${this.baseUrl}?q=${city}&units=${units}&appid=${this.ApiKey}`,
-      this.httpOptions).subscribe((weather: City) => {
-
+        this.httpOptions
+      )
+      .subscribe((weather: City) => {
         const { name } = weather;
         const { description, icon } = weather.weather[0];
         const { temp } = weather.main;
@@ -31,11 +39,11 @@ export class WeatherService {
           name,
           units,
           weather: { description, icon },
-          main: { temp }
-        }
+          main: { temp },
+        };
 
-        this.store.dispatch(addWeather({ city }))
-      })
+        this.store.dispatch(addWeather({ city }));
+      });
   }
 
   getCities() {

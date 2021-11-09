@@ -1,21 +1,16 @@
-<h1>Check Weather</h1>
+<h1>Weather App</h1>
 <app-add-city></app-add-city>
 <div class="initial-size">
 
-    <div *ngIf="cities.length > 0" [@enterAnimation]>
+    <div *ngIf="cities.length" [@fadeIn] [@dataChange]="dataState" (@dataChange.done)="dataState = 'done'">
         <div class="flex">
-            <div>{{cities[0].name}}</div>
-            <div>{{cities[0].main.temp}}&deg; {{cities[0].units | units}}</div>
-            <div><img [src]="'http://openweathermap.org/img/wn/'+cities[0].weather.icon+'@2x.png'" alt=""></div>
+            <div>{{cities[cities.length-1].name}}</div>
+            <div>{{cities[cities.length-1].main.temp}}&deg; {{cities[cities.length-1].units | units}}</div>
+            <div><img [src]="'https://openweathermap.org/img/wn/'+cities[cities.length-1].weather.icon+'@2x.png'"
+                    alt=""></div>
         </div>
-        <app-add-city></app-add-city>
     </div>
 
-    <div *ngIf="cities.length > 1" class="flex" [@enterAnimation]>
-        <div>{{cities[1].name}}</div>
-        <div>{{cities[1].main.temp}}&deg; {{cities[1].units | units}}</div>
-        <div><img [src]="'http://openweathermap.org/img/wn/'+cities[1].weather.icon+'@2x.png'" alt=""></div>
-    </div>
 
 </div>
 
