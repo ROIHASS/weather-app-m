@@ -1,13 +1,16 @@
 <h3>History:</h3>
-<div class="table">
-    <div class="weather">
-        <div *ngFor="let city of cities$ |async; let i = index;">
-            <div class="flex">
-                {{i+1}}.
-                <div>{{city.name}}</div>
-                <div>{{city.main.temp}}&deg; {{city.units | units}};</div>
-                <div>{{city.weather.description}}</div>
-            </div>
-        </div>
+
+<div class="weather">
+    <div class="grid">
+        <div>Index</div>
+        <div>City</div>
+        <div>Temperature</div>
+        <div>Description</div>
+        <ng-container *ngFor="let city of cities$ |async; let i = index;">
+            <div class="grid-item-1">{{i+1}}.</div>
+            <div class="grid-item-2">{{city.name}}</div>
+            <div class="grid-item-3">{{city.main.temp}}&deg; {{city.units | units}};</div>
+            <div class="grid-item-4">{{city.weather.description}}</div>
+        </ng-container>
     </div>
 </div>
