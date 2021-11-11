@@ -5,8 +5,8 @@
                   'is-valid': FormStructure.get('city').valid,
                   'is-invalid': FormStructure.get('city').errors?.required && FormStructure.get('city').touched
                 }">
-                <option value="select city" [selected]='true' disabled>select city</option>
-                <option value="Kyiv">Kyiv</option>
+                <!-- <option value="select city" [selected]='true' disabled>select city</option> -->
+                <option value="Kyiv" [selected]='true'>Kyiv</option>
                 <option value="Tel Aviv">Tel Aviv</option>
             </select>
             <div class="error">
