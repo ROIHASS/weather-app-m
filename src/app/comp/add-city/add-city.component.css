@@ -44,21 +44,31 @@ button {
   border: none;
   margin-top: 20px;
   cursor: pointer;
-  background: #00f8ce;
-  color: #333;
+  background: #e6fffe;
+   color: #5179ff;
+}
+
+.align::after{
+  display: block;
+  height: 2px;
+  background-color: #333;
+  content: " ";
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+button:hover {
+  background: #5179ff;
+  color: rgba(255, 255, 255, 0.767);
+  transition: background 0.2s;
+  color: white;
 }
 
 .align {
   margin-top: -23px;
 }
 
-button:hover {
-  background: #00d6b2;
-  color: rgba(255, 255, 255, 0.767);
-  border: #333;
-  transition: background 0.5s, color 0.5s;
-
-}
 
 @media only screen and (max-width: 620px) {
   form {

@@ -1,16 +1,31 @@
-h1{
-    margin-top: 24px;
-    text-align: center;
+h1 {
+  margin-top: 24px;
+  text-align: center;
+  color: #5179ff;
 }
 
-.initial-size{
-    height: 370px;
-    width: 100%;
+
+h1::after{
+    display: block;
+    height: 2px;
+    background-color: #555;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+
 }
 
-@media only screen and (max-width: 620px){
+.initial-size {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .initial-size{
-        height: 450px;
-    }
+@media only screen and (max-width: 620px) {
+  .initial-size {
+    height: 450px;
+  }
 }

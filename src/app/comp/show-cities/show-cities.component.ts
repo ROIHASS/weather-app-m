@@ -1,21 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { City } from 'src/app/models/city.model';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service';
+import { dataChangeFadeIn, fadeIn } from '../../animations/animation';
 
 @Component({
   selector: 'app-show-cities',
   templateUrl: './show-cities.component.html',
-  styleUrls: ['./show-cities.component.css']
+  styleUrls: ['./show-cities.component.css'],
+  animations: [fadeIn, dataChangeFadeIn],
 })
 export class ShowCitiesComponent implements OnInit {
+  cities: any[];
+  dataState: 'entering' | 'done' = 'done';
 
-  cities$:Observable<City[]>;
-  
-  constructor(private weatherService: WeatherService) { }
+  constructor(
+    private weatherService: WeatherService,
+    private cdref: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-  this.cities$ = this.weatherService.getCities();
+    this.weatherService.getCities().subscribe((cities) => {
+      this.cities = cities;
+      this.dataState = 'entering';
+      this.cdref.detectChanges();
+    });
   }
-
 }

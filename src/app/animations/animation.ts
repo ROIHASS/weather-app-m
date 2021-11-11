@@ -13,6 +13,16 @@ export const dataChange: AnimationTriggerMetadata = trigger('dataChange', [
   ]),
 ]);
 
+export const dataChangeFadeIn: AnimationTriggerMetadata = trigger(
+  'dataChangeFadeIn',
+  [
+    transition('done => entering', [
+      style({ opacity: 0 }),
+      animate('1000ms', style({ opacity: 1 })),
+    ]),
+  ]
+);
+
 export const fadeIn: AnimationTriggerMetadata = trigger('fadeIn', [
   transition(':enter', [
     style({ opacity: 0 }),

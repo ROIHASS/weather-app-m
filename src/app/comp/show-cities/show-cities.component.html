@@ -1,16 +1,23 @@
-<h3>History:</h3>
+<div *ngIf="cities?.length > 0" [@fadeIn]>
+    <h3>History:</h3>
 
-<div class="weather">
-    <div class="grid">
-        <div>Index</div>
-        <div>City</div>
-        <div>Temperature</div>
-        <div>Description</div>
-        <ng-container *ngFor="let city of cities$ |async; let i = index;">
-            <div class="grid-item-1">{{i+1}}.</div>
-            <div class="grid-item-2">{{city.name}}</div>
-            <div class="grid-item-3">{{city.main.temp}}&deg; {{city.units | units}};</div>
-            <div class="grid-item-4">{{city.weather.description}}</div>
-        </ng-container>
+    <div class="weather">
+        <div class="grid-th" > 
+            <div class="grid-item-th">No.</div>
+            <div class="grid-item-th">City</div>
+            <div class="grid-item-th">Temperature</div>
+            <div class="grid-item-th">Description</div>
+        </div>
+        <div class="container" [@dataChangeFadeIn]="dataState" (@dataChangeFadeIn.done)="dataState = 'done'">
+            <div class="grid">
+                <ng-container *ngFor="let city of cities; let i = index;">
+                    <div class="grid-item grid-item-1"><span>{{i+1}}.</span></div>
+                    <div class="grid-item grid-item-2"><span>{{city.name}}</span></div>
+                    <div class="grid-item grid-item-3"><span>{{city.main.temp}}&deg; {{city.units | units}};</span>
+                    </div>
+                    <div class="grid-item grid-item-4"><span>{{city.weather.description}}</span></div>
+                </ng-container>
+            </div>
+        </div>
     </div>
 </div>

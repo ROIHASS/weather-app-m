@@ -12,6 +12,7 @@ body{
     font-family: 'Assistant', 'Ariel', sans-serif;
     font-size: 14px;
     overflow-x: hidden;
+    height: 100vh;
 }
 
 .flex{
